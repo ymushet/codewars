@@ -1,5 +1,5 @@
 left_side = {'w': 4, 'p': 3, 'b': 2, 's': 1}
-right_side = {'m': 4, 'q': 3, 'd': 1, 'z': 1}
+right_side = {'m': 4, 'q': 3, 'd': 2, 'z': 1}
 
 def find_letters_values(letters: list, values : dict) -> int:
     res = 0
@@ -8,7 +8,7 @@ def find_letters_values(letters: list, values : dict) -> int:
             res += values[l]
     return res
 
-def fight(text : str) -> str:
+def alphabet_war(text : str) -> str:
     """
     >>> fight('')
     "Let's fight again!"
@@ -25,19 +25,15 @@ def fight(text : str) -> str:
     """
 
     letters = list(text)
-    index = int(len(letters) / 2)
-    right = find_letters_values(letters[index:], right_side)
-    left = find_letters_values(letters[:index], left_side)
+    right = find_letters_values(letters, right_side)
+    left = find_letters_values(letters, left_side)
     if right > left:
         return 'Right side wins!'
     elif left > right:
         return 'Left side wins!'
+    print(left, right)
     return 'Let\'s fight again!'
 
 if __name__ == "__main__":
-    print(fight(''))
-    print(fight('abracadabra'))
-    print(fight('z'))
-    print(fight('zdqmwpbs'))
-    print(fight('zzzzs'))
-    print(fight('wwwwwwz'))
+    # 
+    print(alphabet_war('smzwszfbsgsqbzdwfcesqmwsqqep'))
