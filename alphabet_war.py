@@ -47,4 +47,5 @@ if __name__ == "__main__":
     """
     See https://www.codewars.com/kata/alphabet-war
     """
+    # python -m doctest alphabet_war.py
     print(alphabet_war('u'))
