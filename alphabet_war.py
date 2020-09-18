@@ -35,5 +35,7 @@ def alphabet_war(text : str) -> str:
     return 'Let\'s fight again!'
 
 if __name__ == "__main__":
-    # 
+    """
+    See https://www.codewars.com/kata/alphabet-war
+    """
     print(alphabet_war('smzwszfbsgsqbzdwfcesqmwsqqep'))
