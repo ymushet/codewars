@@ -1,7 +1,19 @@
-left_side = {'w': 4, 'p': 3, 'b': 2, 's': 1, 'y': 1}
-right_side = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
+from typing import List
+
+left_army = {'w': 4, 'p': 3, 'b': 2, 's': 1, 'y': 1}
+
+right_army = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
+
 # We will consider 'y' not a vowel letter https://simple.wikipedia.org/wiki/Vowel
-vowel_side = {'a': 1, 'e': 1, 'i' : 1, 'o': 1, 'u': 1}
+vowel_army = {'a': 1, 'e': 1, 'i' : 1, 'o': 1, 'u': 1}
+
+left = { 'phrase': 'Left side wins!', 'army': left_army}
+
+right = {'phrase': 'Right side wins!', 'army': right_army}
+
+vowel = {'phrase': 'Vowel side wins!', 'army': vowel_army}
+
+army_list = frozenset(left, right, vowel)
 
 def find_letters_values(letters: list, values : dict) -> int:
     res = 0
@@ -9,6 +21,10 @@ def find_letters_values(letters: list, values : dict) -> int:
         if l in values.keys():
             res += values[l]
     return res
+
+def find_winner(values : List[int]) -> str:
+    
+    return 'Let\'s fight again!'
 
 def alphabet_war(text : str) -> str:
     """
@@ -31,17 +47,12 @@ def alphabet_war(text : str) -> str:
     """
 
     letters = list(text)
-    right = find_letters_values(letters, right_side)
-    left = find_letters_values(letters, left_side)
-    vowel = find_letters_values(letters, vowel_side)
-    if right > left and right > vowel:
-        return 'Right side wins!'
-    elif left > right and left > vowel:
-        return 'Left side wins!'
-    elif vowel > left and vowel > right:
-        return 'Vowel side wins!'
+    values_list = []
+    for a in army_list:
+        values = find_letters_values(letters,a['army'])
+        values_list.append(values)
 
-    return 'Let\'s fight again!'
+    return find_winner(values_list)
 
 if __name__ == "__main__":
     """
