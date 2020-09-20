@@ -13,7 +13,7 @@ right = {'phrase': 'Right side wins!', 'army': right_army}
 
 vowel = {'phrase': 'Vowel side wins!', 'army': vowel_army}
 
-army_list = frozenset(left, right, vowel)
+army_list = [left, right, vowel]
 
 def find_letters_values(letters: list, values : dict) -> int:
     res = 0
@@ -23,8 +23,15 @@ def find_letters_values(letters: list, values : dict) -> int:
     return res
 
 def find_winner(values : List[int]) -> str:
-    
-    return 'Let\'s fight again!'
+    max_value = max(values)
+    if max_value == 0:
+        return 'Let\'s fight again!'
+    if values.count(max_value) != 1:
+        return 'Let\'s fight again!'
+
+    index = values.index(max_value)
+    army = army_list[index]
+    return army['phrase']
 
 def alphabet_war(text : str) -> str:
     """
