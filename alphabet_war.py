@@ -1,19 +1,19 @@
 from typing import List
 
-left_army = {'w': 4, 'p': 3, 'b': 2, 's': 1, 'y': 1}
+#LEFT_ARMY = {'w': 4, 'p': 3, 'b': 2, 's': 1, 'y': 1}
+LEFT_ARMY = {'w': 4, 'p': 3, 'b': 2, 's': 1}
 
-right_army = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
+#RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
+RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1}
 
 # We will consider 'y' not a vowel letter https://simple.wikipedia.org/wiki/Vowel
-vowel_army = {'a': 1, 'e': 1, 'i' : 1, 'o': 1, 'u': 1}
-
-left = { 'phrase': 'Left side wins!', 'army': left_army}
-
-right = {'phrase': 'Right side wins!', 'army': right_army}
-
-vowel = {'phrase': 'Vowel side wins!', 'army': vowel_army}
-
-army_list = [left, right, vowel]
+VOWEL_ARMY = {'a': 1, 'e': 1, 'i' : 1, 'o': 1, 'u': 1}
+LEFT = { 'phrase': 'Left side wins!', 'army': LEFT_ARMY}
+RIGHT = {'phrase': 'Right side wins!', 'army': RIGHT_ARMY}
+VOWEL = {'phrase': 'Vowel side wins!', 'army': VOWEL_ARMY}
+DEFAULT_PHRASE = 'Let\'s fight again!'
+#ARMY_LIST = [LEFT, RIGHT, VOWEL]
+ARMY_LIST = [LEFT, RIGHT]
 
 def find_letters_values(letters: list, values : dict) -> int:
     res = 0
@@ -24,13 +24,11 @@ def find_letters_values(letters: list, values : dict) -> int:
 
 def find_winner(values : List[int]) -> str:
     max_value = max(values)
-    if max_value == 0:
-        return 'Let\'s fight again!'
-    if values.count(max_value) != 1:
-        return 'Let\'s fight again!'
+    if max_value == 0 or values.count(max_value) != 1:
+        return DEFAULT_PHRASE
 
     index = values.index(max_value)
-    army = army_list[index]
+    army = ARMY_LIST[index]
     return army['phrase']
 
 def alphabet_war(text : str) -> str:
@@ -55,8 +53,8 @@ def alphabet_war(text : str) -> str:
 
     letters = list(text)
     values_list = []
-    for a in army_list:
-        values = find_letters_values(letters,a['army'])
+    for a in ARMY_LIST:
+        values = find_letters_values(letters, a['army'])
         values_list.append(values)
 
     return find_winner(values_list)
