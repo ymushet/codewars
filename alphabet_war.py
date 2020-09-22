@@ -1,10 +1,10 @@
 from typing import List
 
-#LEFT_ARMY = {'w': 4, 'p': 3, 'b': 2, 's': 1, 'y': 1}
-LEFT_ARMY = {'w': 4, 'p': 3, 'b': 2, 's': 1}
+LEFT_ARMY = {'w': 4, 'p': 3, 'b': 2, 's': 1, 'y': 1}
+#LEFT_ARMY = {'w': 4, 'p': 3, 'b': 2, 's': 1}
 
-#RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
-RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1}
+RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
+#RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1}
 
 # We will consider 'y' not a vowel letter https://simple.wikipedia.org/wiki/Vowel
 VOWEL_ARMY = {'a': 1, 'e': 1, 'i' : 1, 'o': 1, 'u': 1}
@@ -12,8 +12,8 @@ LEFT = { 'phrase': 'Left side wins!', 'army': LEFT_ARMY}
 RIGHT = {'phrase': 'Right side wins!', 'army': RIGHT_ARMY}
 VOWEL = {'phrase': 'Vowel side wins!', 'army': VOWEL_ARMY}
 DEFAULT_PHRASE = 'Let\'s fight again!'
-#ARMY_LIST = [LEFT, RIGHT, VOWEL]
-ARMY_LIST = [LEFT, RIGHT]
+ARMY_LIST = [LEFT, RIGHT, VOWEL]
+#ARMY_LIST = [LEFT, RIGHT]
 
 def find_letters_values(letters: list, values : dict) -> int:
     res = 0
