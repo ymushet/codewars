@@ -8,7 +8,7 @@ RIGHT_ARMY = {'m': 4, 'q': 3, 'd': 2, 'z': 1, 'y': 3}
 
 # We will consider 'y' not a vowel letter https://simple.wikipedia.org/wiki/Vowel
 VOWEL_ARMY = {'a': 1, 'e': 1, 'i' : 1, 'o': 1, 'u': 1}
-LEFT = { 'phrase': 'Left side wins!', 'army': LEFT_ARMY}
+LEFT = {'phrase': 'Left side wins!', 'army': LEFT_ARMY}
 RIGHT = {'phrase': 'Right side wins!', 'army': RIGHT_ARMY}
 VOWEL = {'phrase': 'Vowel side wins!', 'army': VOWEL_ARMY}
 DEFAULT_PHRASE = 'Let\'s fight again!'
