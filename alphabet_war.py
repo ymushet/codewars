@@ -51,10 +51,9 @@ def alphabet_war(text : str) -> str:
     'Right side wins!'
     """
 
-    letters = list(text)
     values_list = []
     for a in ARMY_LIST:
-        values = find_letters_values(letters, a['army'])
+        values = find_letters_values(text, a['army'])
         values_list.append(values)
 
     return find_winner(values_list)
